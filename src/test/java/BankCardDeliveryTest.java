@@ -1,4 +1,6 @@
+import com.codeborne.selenide.logevents.SelenideLogger;
 import com.github.javafaker.Faker;
+import io.qameta.allure.selenide.AllureSelenide;
 import lombok.SneakyThrows;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.Keys;
@@ -22,7 +24,14 @@ public class BankCardDeliveryTest {
         $("[data-test-id='date'] [placeholder='Дата встречи']").sendKeys(Keys.CONTROL, "a" + Keys.DELETE);
 
     }
-
+    @BeforeAll
+    static void setUpAll(){
+        SelenideLogger.addListener("allure", new AllureSelenide());
+    }
+    @AfterAll
+    static void tearDownAll(){
+        SelenideLogger.removeListener("allure");
+    }
 
     @SneakyThrows
     @Test

@@ -1,6 +1,7 @@
 plugins {
     id 'java'
     id "io.freefair.lombok" version "8.2.2"
+    id 'io.qameta.allure' version '2.8.1'
 }
 
 group 'ru.netology'
@@ -11,16 +12,28 @@ sourceCompatibility = 11
 // кодировка файлов (если используете русский язык в файлах)
 compileJava.options.encoding = "UTF-8"
 compileTestJava.options.encoding = "UTF-8"
-
+allure {
+    autoconfigure = true
+    version '2.13.3'
+    useJUnit5 {
+        version '2.13.3'
+    }
+}
 repositories {
+    jcenter()
     mavenCentral()
 }
-
+configurations {
+    testCompile {
+        extendsFrom testImplementation
+    }
+}
 dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter:5.9.2'
     // библиотека com.codeborne:selenide используется при построении проекта с использованием Selenide
     testImplementation 'com.codeborne:selenide:6.17.1'
     testImplementation 'com.github.javafaker:javafaker:1.0.2'
+    testImplementation 'io.qameta.allure:allure-selenide:2.13.3'
 }
 
 test {
@@ -29,3 +42,4 @@ test {
     // свойство selenide.headless используется в проектах на основе Selenide
     systemProperty 'selenide.headless', System.getProperty('selenide.headless')
 }
+
