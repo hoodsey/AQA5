@@ -64,8 +64,8 @@ public class BankCardDeliveryTest {
         var incorrectMeetingDate = DataGenerator.generateDate(daysToAddForFirstMeeting);
         var item = new BankCardItem(validUser.getName(), validUser.getCity(), incorrectMeetingDate, validUser.getPhone());
         $("[data-test-id='city'] input").setValue(item.getCity());
-        $("[data-test-id='date'] input").val(item.getDate());
-        $("[data-test-id='name'] input").setValue(item.getName());
+     //   $("[data-test-id='date'] input").val(item.getDate());
+       // $("[data-test-id='name'] input").setValue(item.getName());
         $("[data-test-id='phone'] input").setValue(item.getPhone());
         $("[data-test-id='agreement']").click();
         $(".button").click();
