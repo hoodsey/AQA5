@@ -81,8 +81,8 @@ public class BankCardDeliveryTest {
         Faker faker = new Faker(new Locale("en"));
         var city = faker.address().city();
         $("[data-test-id='city'] input").setValue(city);
-        $("[data-test-id='date'] input").val(firstMeetingDate);
-        $("[data-test-id='name'] input").setValue(validUser.getName());
+       // $("[data-test-id='date'] input").val(firstMeetingDate);
+       // $("[data-test-id='name'] input").setValue(validUser.getName());
         $("[data-test-id='phone'] input").setValue(validUser.getPhone());
         $("[data-test-id='agreement']").click();
         $(".button").click();
