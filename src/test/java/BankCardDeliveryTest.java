@@ -86,6 +86,9 @@ public class BankCardDeliveryTest {
         $("[data-test-id='phone'] input").setValue(validUser.getPhone());
         $("[data-test-id='agreement']").click();
         $(".button").click();
+        $(".button").click();
+        $(".button").click();
+        $(".button").click();
         $("[data-test-id='city'] [class='input__sub']").shouldBe(ownText("Доставка в выбранный город недоступна"));
     }
 
